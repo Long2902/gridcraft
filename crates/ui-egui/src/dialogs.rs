@@ -674,9 +674,10 @@ impl Dialog {
             "commandSearch" => Dialog::custom("commandSearch", "Search Commands", json!({})),
             "agents" => Dialog::custom("agents", "Agent Control", json!({})),
             "about" => {
-                let mut d = Dialog::custom("about", "About GridCraft", json!({}));
+                let mut d = Dialog::custom("about", "About DuyLong Excel", json!({}));
                 d.tab = match p("tab").as_str() {
-                    Some(t @ ("Contributors" | "Models")) => t.to_string(),
+                    Some("Contributors") if false => "Contributors".into(),
+                    Some("Models") if false => "Models".into(),
                     _ => "About".into(),
                 };
                 d
@@ -776,7 +777,7 @@ impl Dialog {
             "pickList" => Dialog::custom("pickList", "Pick From List", json!({})),
             "saveCopy" => Dialog::custom("saveCopy", "Save a Copy", json!({"format": p("format")})),
             "saveChanges" => Dialog::custom("saveChanges", "Save Changes?", json!({"title": p("title")})),
-            "start" => Dialog::custom("start", "GridCraft", json!({})),
+            "start" => Dialog::custom("start", "DuyLong Excel", json!({})),
             "comments" => {
                 app.grid.pane = None;
                 app.run_or_alert("review.showComments", json!({"on": true}));
@@ -1471,8 +1472,10 @@ fn form_fields(ui: &mut egui::Ui, d: &mut Dialog) {
 /// Help ▸ About GridCraft: the app, its contributors and the AI models that helped. The credits
 /// are compiled in (`crate::credits`, docs/contributors.md).
 fn about(ui: &mut egui::Ui, d: &mut Dialog) {
+    if (d.tab == "Contributors" && !false) || (d.tab == "Models" && !false) { d.tab = "About".into(); }
     ui.horizontal(|ui| {
         for tab in ["About", "Contributors", "Models"] {
+            if (tab == "Contributors" && !false) || (tab == "Models" && !false) { continue; }
             if ui.selectable_label(d.tab == tab, tab).clicked() {
                 d.tab = tab.to_string();
             }
@@ -1480,15 +1483,14 @@ fn about(ui: &mut egui::Ui, d: &mut Dialog) {
     });
     ui.separator();
     match d.tab.as_str() {
-        "Contributors" => crate::credits::contributors_ui(ui),
-        "Models" => crate::credits::models_ui(ui),
+        "Contributors" => { egui::ScrollArea::horizontal().id_salt("craft-about-grid-contrib").show(ui, |ui| crate::credits::contributors_ui(ui)); },
+        "Models" => { egui::ScrollArea::horizontal().id_salt("craft-about-grid-models").show(ui, |ui| crate::credits::models_ui(ui)); },
         _ => {
-            ui.heading("GridCraft");
+            ui.heading("DuyLong Excel");
             ui.label(format!("Version {}", env!("CARGO_PKG_VERSION")));
             ui.add_space(4.0);
-            ui.label("A clean-room, open-source, Rust-native spreadsheet. Part of ArtCraft.");
-            ui.hyperlink_to("getartcraft.com/apps/gridcraft", "https://getartcraft.com/apps/gridcraft");
-            ui.hyperlink_to("Join the ArtCraft Discord", "https://discord.gg/artcraft");
+            // Mô tả About đã được ẩn (chỉ giữ lại thông tin pháp lý bắt buộc).
+                        ui.hyperlink_to("Mã nguồn trên GitHub", "https://github.com/Long2902/gridcraft");
         }
     }
 }

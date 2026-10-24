@@ -7,11 +7,11 @@
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
-  <string>GridCraft</string>
+  <string>DuyLong Excel</string>
   <key>CFBundleName</key>
-  <string>GridCraft</string>
+  <string>DuyLong Excel</string>
   <key>CFBundleExecutable</key>
-  <string>GridCraft</string>
+  <string>DuyLong Excel</string>
   <key>CFBundleIdentifier</key>
   <string>ai.storyteller.gridcraft</string>
   <key>CFBundleInfoDictionaryVersion</key>
@@ -29,7 +29,7 @@
   <key>GridCraftBuildCommit</key>
   <string>@BUILD_SHA@</string>
   <key>CFBundleIconFile</key>
-  <string>GridCraft</string>
+  <string>DuyLong Excel</string>
   <key>LSApplicationCategoryType</key>
   <string>public.app-category.productivity</string>
   <!-- Must match MACOSX_DEPLOYMENT_TARGET in package.sh. Big Sur is the first release on

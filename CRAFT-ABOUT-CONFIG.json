@@ -1,0 +1,20 @@
+{
+  "summary": "",
+  "minimal_about": false,
+  "show_contributors": false,
+  "show_models": false,
+  "links": {
+    "website": {
+      "label": "Website",
+      "url": ""
+    },
+    "github": {
+      "label": "Mã nguồn trên GitHub",
+      "url": "https://github.com/Long2902/gridcraft"
+    },
+    "community": {
+      "label": "Cộng đồng / Hỗ trợ",
+      "url": ""
+    }
+  }
+}

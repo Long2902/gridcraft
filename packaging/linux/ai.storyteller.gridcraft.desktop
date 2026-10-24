@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=GridCraft
+Name=DuyLong Excel
 GenericName=Spreadsheet
-Comment=Calculate, analyse and chart data in workbooks
+Comment=Bảng tính
 Exec=gridcraft %F
 TryExec=gridcraft
 Icon=ai.storyteller.gridcraft

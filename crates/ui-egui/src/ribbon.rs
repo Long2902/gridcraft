@@ -118,7 +118,7 @@ pub fn title_bar(app: &mut SheetApp, ui: &mut Ui) {
             ui.painter().text(
                 rect.center(),
                 Align2::CENTER_CENTER,
-                format!("{title}{}", if dirty { " •" } else { "" }),
+                format!("{title}{} — {}", if dirty { " •" } else { "" }, "DuyLong Excel"),
                 theme::ui_bold(13.0),
                 t.text,
             );
@@ -1441,7 +1441,7 @@ fn insert(app: &mut SheetApp, ui: &mut Ui) {
             // in dialogs.rs) — otherwise the prior cell/range selection is left in place, and
             // Del right after inserting deletes the source data instead of the chart.
             Ok(r) => app.selected_chart = r.get("chart").and_then(serde_json::Value::as_u64).and_then(|id| u32::try_from(id).ok()),
-            Err(e) => app.message = Some(("GridCraft".into(), crate::clean_error(&e))),
+            Err(e) => app.message = Some(("DuyLong Excel".into(), crate::clean_error(&e))),
         }
     }
     ui.vertical(|ui| {

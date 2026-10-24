@@ -1,0 +1,8 @@
+BRANDING RESIDUAL SCAN (not a compiled binary test)
+Review the listed code references before publishing as an independent product.
+References that only attribute the upstream authors may be retained.
+
+apps/gridcraft/src/native_menu.rs:177: ("GridCraft on getartcraft.com", "url:https://getartcraft.com/apps/gridcraft", None),
+apps/gridcraft/src/native_menu.rs:178: ("Join the ArtCraft Discord…", "url:https://discord.gg/artcraft", None),
+crates/ui-egui/src/i18n/pt.rs:664: "Join the ArtCraft Discord" => "Participe do Discord da ArtCraft",
+packaging/linux/ai.storyteller.gridcraft.metainfo.xml.in:30: <url type="contact">https://discord.gg/artcraft</url>
